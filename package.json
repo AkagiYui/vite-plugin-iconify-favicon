@@ -1,0 +1,53 @@
+{
+  "name": "vite-plugin-iconify-favicon",
+  "version": "0.1.0",
+  "description": "Vite 插件：从本地 @iconify-json 图标集提取图标，生成支持深色模式的 SVG favicon",
+  "keywords": [
+    "vite",
+    "vite-plugin",
+    "favicon",
+    "iconify",
+    "svg",
+    "dark-mode"
+  ],
+  "license": "MIT",
+  "author": "AkagiYui",
+  "packageManager": "pnpm@11.1.2",
+  "type": "module",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.mts",
+      "import": "./dist/index.mjs",
+      "require": {
+        "types": "./dist/index.d.cts",
+        "default": "./dist/index.cjs"
+      }
+    }
+  },
+  "main": "./dist/index.mjs",
+  "module": "./dist/index.mjs",
+  "types": "./dist/index.d.mts",
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsdown",
+    "dev": "tsdown --watch",
+    "prepublishOnly": "pnpm run build"
+  },
+  "peerDependencies": {
+    "vite": ">=4"
+  },
+  "devDependencies": {
+    "@types/node": "^25.8.0",
+    "tsdown": "^0.22.0",
+    "typescript": "^5.7.0",
+    "vite": "^8.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/AkagiYui/vite-plugin-iconify-favicon"
+  },
+  "homepage": "https://github.com/AkagiYui/vite-plugin-iconify-favicon",
+  "bugs": ""
+}
