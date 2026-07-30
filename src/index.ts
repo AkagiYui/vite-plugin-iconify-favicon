@@ -82,7 +82,8 @@ function findIconifyPackages(cwd: string): string[] {
   const dir = resolve(cwd, "node_modules/@iconify-json")
   try {
     return readdirSync(dir, { withFileTypes: true })
-      .filter(d => d.isDirectory())
+      // pnpm 等包管理器使用符号链接组织 node_modules，Dirent.isDirectory() 对符号链接返回 false，需一并放行
+      .filter(d => d.isDirectory() || d.isSymbolicLink())
       .map(d => d.name)
   } catch {
     return []
